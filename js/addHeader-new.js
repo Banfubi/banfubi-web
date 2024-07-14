@@ -1,33 +1,4 @@
 $(function () {
-  // const logoData = {
-  //   title: "banfubi",
-  //   logoPC: "https://butters0418.github.io/banfubi-web/img/logo-white.png",
-  //   logoMb: "https://butters0418.github.io/banfubi-web/img/logo-top2.png",
-  //   link: "https://www.banfubi.com/",
-  // };
-  // const headerData = [
-  //   {
-  //     title: "全部商品",
-  //     link: "https://banfubi.com/collections",
-  //   },
-  //   {
-  //     title: "全部商品",
-  //     link: "https://www.banfubi.com.tw/0djga7",
-  //   },
-  //   {
-  //     title: "品牌故事",
-  //     link: "https://www.lovonbaby.com/pages/about",
-  //   },
-  //   {
-  //     title: "Q&A相關查詢",
-  //     link: "https://www.banfubi.com/pages/%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8",
-  //   },
-  //   {
-  //     title: "實體門市",
-  //     link: "https://banfubi.com/pages/%E9%BA%97%E5%AC%B0%E6%88%BF",
-  //   },
-  // ];
-
   let headerHtml = `
     <section id="website-nav__container">
     <div class="website-nav">
