@@ -8,10 +8,10 @@ $(function () {
         <span></span>
       </a>
       <div class="nav__section">
-        <a class="nav__section--logo" href="${logoData.link}"><img src="${logoData.logoPC}" alt="${logoData.title}"></a>
+        <a class="nav__section--logo" href="${logoData.link}"><img src="${logoData.headerPC}" alt="${logoData.title}"></a>
         <ul class="nav__section--list">
-          <li class="nav__section--logomb"><a href="${logoData.link}"><img src="${logoData.logoMb}" alt="${logoData.title}"></a></li>
-          ${headerData.map((item) => `<li><a href="${item.link}">${item.title}</a></li>`).join("")}
+          <li class="nav__section--logomb"><a href="${logoData.link}"><img src="${logoData.headerMb}" alt="${logoData.title}"></a></li>
+          ${headerData.map((item) => `<li class="ani-list"><a href="${item.link}">${item.title}</a></li>`).join("")}
         </ul>
         <a href="javascript:;" class="nav__section--close"></a>
       </div>
@@ -26,6 +26,11 @@ $(function () {
     $(".nav__section").addClass("nav__section--show");
     $(".nav__section--close").fadeIn(200);
     $("body").addClass("nav--open");
+    $(".nav__section--list .ani-list").each((index, item) => {
+      setTimeout(() => {
+        $(item).addClass("show");
+      }, (index + 1) * 200);
+    });
   });
 
   $(".nav__section--close").on("click", function (e) {
@@ -33,5 +38,6 @@ $(function () {
     $(".nav__section--close").fadeOut(200);
     $(".nav__section").removeClass("nav__section--show");
     $("body").removeClass("nav--open");
+    $(".nav__section--list .ani-list").removeClass("show");
   });
 });
