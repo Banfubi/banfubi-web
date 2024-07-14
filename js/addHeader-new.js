@@ -29,7 +29,7 @@ $(function () {
     $(".nav__section--list .ani-list").each((index, item) => {
       setTimeout(() => {
         $(item).addClass("show");
-      }, (index + 1) * 200);
+      }, (index + 1) * 150);
     });
   });
 
