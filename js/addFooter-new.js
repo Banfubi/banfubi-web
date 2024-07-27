@@ -7,9 +7,13 @@ $(function () {
         </div>
         <!-- mb icon -->
         <div class="footer__social mb">
-          <a href="https://www.facebook.com/Lovon.tw"><img src="https://butters0418.github.io/banfubi-web/img/fb.svg"></a>
-          <a href="javascript:;" onclick="window.open('https://line.me/R/msg/text/?'+ (encodeURIComponent(document.title)) + '%0D%0A'+ (encodeURIComponent(location.href)), '_blank');"><img src="https://butters0418.github.io/banfubi-web/img/line.svg"></a>
-          <a href="https://www.instagram.com/lovon_tw/"><img src="https://butters0418.github.io/banfubi-web/img/ig.svg"></a>
+          ${socialMediaData
+            .map((item, index) => {
+              if (index === 1)
+                return `<a href="javascript:;" onclick="window.open('https://line.me/R/msg/text/?'+ (encodeURIComponent(document.title)) + '%0D%0A'+ (encodeURIComponent(location.href)), '_blank');"><img src="${item.img}" alt="${item.title}"></a>`;
+              return `<a href="${item.link}"><img src="${item.img}" alt="${item.title}"></a>`;
+            })
+            .join("")}
         </div>
 
         <div class="footer__collapse footer__aboutus">
@@ -34,24 +38,26 @@ $(function () {
           <p class="footer__title" data-toggle="collapse" href="#footer-3">CONTACT US <span class="mb footer__title--arrow"></span></p>
           <div class="collapse show" id="footer-3">
             <ul class="footer__list">
-              <li><a href="https://www.banfubi.com/">斑富比股份有限公司</a></li>
-              <li>客服電話:(02)2581-9665</li>
-              <li>服務時間:週一至週五 10:00-18:00 </li>
-              <li>廠商合作信箱:torrie@banfubi.com</li>
+              ${contactUsData
+                .map((item, index) => {
+                  if (index === 0) return `<li><a href="${logoData.link}">${item.title}</a></li>`;
+                  return `<li>${item.title}</li>`;
+                })
+                .join("")}
             </ul>
           </div>
         </div>
 
         <div class="footer__pay mb">
-          <a href=""><img src="https://butters0418.github.io/banfubi-web/img/visa.svg"></a>
-          <a href=""><img src="https://butters0418.github.io/banfubi-web/img/mastercard.svg"></a>
-          <a href=""><img src="https://butters0418.github.io/banfubi-web/img/seven11.png"></a>
-          <a href=""><img src="https://butters0418.github.io/banfubi-web/img/jcb.png"></a>
+          <a href=""><img src="https://banfubi.github.io/banfubi-web/img/visa.svg"></a>
+          <a href=""><img src="https://banfubi.github.io/banfubi-web/img/mastercard.svg"></a>
+          <a href=""><img src="https://banfubi.github.io/banfubi-web/img/seven11.png"></a>
+          <a href=""><img src="https://banfubi.github.io/banfubi-web/img/jcb.png"></a>
         </div>
 
         <div class="footer__copyright mb">
           <img src="${logoData.footerMb}">
-          <p>2019-2024 © Banfubi Inc. All right reserved.</p>
+          <p>${logoData.copyRight}</p>
         </div>
 
       </div>
@@ -70,8 +76,7 @@ $(function () {
     $(this).prev().find(".footer__title--arrow").removeClass("rotate");
   });
 
-  let checkPrivacy =
-    '<p class="check-privacy">* 按下送出後等同於接受「 <a href="https://www.banfubi.com.tw/pm6j8d" target="_blank">隱私權政策</a> 」及「<a href="https://www.banfubi.com.tw/terms" target="_blank">使用者條款</a> 」。</p>';
+  let checkPrivacy = `<p class="check-privacy">* 按下送出後等同於接受「 <a href="${privacyData.privacyPolicyUrl}" target="_blank">隱私權政策</a> 」及「<a href="${privacyData.userTermsUrl}" target="_blank">使用者條款</a> 」。</p>`;
   let isStep3Hidden = true;
 
   // add privacy text
